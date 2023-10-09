@@ -1,0 +1,26 @@
+{% extends 'base_site.html' %}
+
+{% block maincontent %}
+
+    <form method = "post" acion = "" enctype="multipart/form-data"> {% csrf_token %}
+        {% comment %} <input type ="text" name="title" /> {% endcomment %}
+        {% comment %} {{ form.as_p }} {% endcomment %}
+
+        <h1>ASSIGN TASK</h1>
+
+        {{ form.non_field_errors }}
+        {% for field in form %}
+            <div class="form-group">
+                {{field.label_tag }}
+                {{ field }}
+                <div class="text text-danger">
+                    {{ field.errors }}
+                </div>
+            </div>
+
+        {% endfor %}
+
+        <input type ="submit" name="submit" value ="Submit" />
+    </form>
+
+{% endblock maincontent %}

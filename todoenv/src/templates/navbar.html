@@ -1,0 +1,84 @@
+<nav class="navbar navbar-dark bg-dark">
+<div class="d-flex lign-items-center justify-content-around">
+    <li>
+        <a class="text-decoration-none text-white" href="{% url 'todofeature:todo_list' %}">Assignment List</a>
+    </li>
+
+    {% if request.user.is_authenticated %}
+
+        <li>
+            <a class="text-decoration-none text-white" href="{% url 'todofeature:todo_add' %}">Add Assignment</a>
+        </li>
+
+    {% endif %}
+
+    {% if request.user.is_authenticated %}
+        <li>
+            <a class="text-decoration-none text-white" href="{% url 'user:logout' %}">Log Out</a>
+        </li>
+    {% endif %}
+
+    {% if  not request.user.is_authenticated %}
+        <li>
+            <a class="text-decoration-none text-white" href="{% url 'user:login' %}">Log In</a>
+        </li>
+    {% endif %}
+
+    {% if  not request.user.is_authenticated %}
+        <li>
+            <a class="text-decoration-none text-white" href="{% url 'user:register' %}">Register</a>
+        </li>
+    {% endif %}
+
+
+</div> 
+</nav>
+
+{% comment %} <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+      
+      <class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% comment %} <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+            </li> 
+
+            
+            
+            <li class="nav-item">
+                <a  class="nav-link active" aria-current="page" href="{% url 'todofeature:todo_list' %}">List Todo</a>
+            
+                <a class="nav-link active" aria-current="page" href="{% url 'todofeature:todo_add' %}">Add Todo</a>
+            </li>
+
+            {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'user:logout' %}">Log Out</a>
+                </li>
+            {% endif %}
+
+            {% if  not request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'user:login' %}">Log In</a>
+                </li>
+            {% endif %}
+
+            {% if  not request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'user:register' %}">Register</a>
+                </li>
+            {% endif %}
+
+       
+        </ul>
+    </div>
+  </div>
+</nav> {% endcomment %}
